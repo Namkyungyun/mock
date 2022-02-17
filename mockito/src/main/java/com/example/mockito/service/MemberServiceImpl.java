@@ -28,8 +28,38 @@ public class MemberServiceImpl implements MemberService{
         return result;
     }
 
-    public String hello() {
-        return "hello!";
+    @Override
+    public MemberDto getMember(String name) {
+        MemberEntity member1 = repository.findByName(name);
+        MemberDto result = new ModelMapper().map(member1, MemberDto.class);
+        return result;
     }
+
+    @Override
+    public MemberDto saveMember(MemberDto memberDto) {
+        MemberEntity member = new MemberEntity();
+        member.setEmail(memberDto.getEmail());
+        member.setName(memberDto.getName());
+        MemberEntity member1 = repository.save(member);
+        MemberDto result = new ModelMapper().map(member1, MemberDto.class);
+        return  result;
+    }
+
+    @Override
+    public String deleteMember(String email) {
+
+        try{
+            MemberEntity member = repository.findByEmail(email);
+            if(member.getEmail() != null) {
+                repository.deleteByEmail(email);
+               
+            }
+        }catch (NullPointerException ex) {
+            ex.printStackTrace();
+            return "회원이 없음";
+        }
+        return "삭제완료";
+    }
+
 
 }
