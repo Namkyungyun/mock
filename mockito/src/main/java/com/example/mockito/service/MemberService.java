@@ -1,9 +1,6 @@
 package com.example.mockito.service;
 
 import com.example.mockito.jpa.MemberDto;
-import com.example.mockito.jpa.MemberEntity;
-
-
 import java.util.List;
 
 public interface MemberService {

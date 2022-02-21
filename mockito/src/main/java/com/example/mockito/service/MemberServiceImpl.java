@@ -47,12 +47,10 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public String deleteMember(String email) {
-
         try{
             MemberEntity member = repository.findByEmail(email);
             if(member.getEmail() != null) {
                 repository.deleteByEmail(email);
-               
             }
         }catch (NullPointerException ex) {
             ex.printStackTrace();
