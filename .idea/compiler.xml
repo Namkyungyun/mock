@@ -7,15 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mockito-restTemplate" />
-        <module name="mockito" />
+        <module name="api-request" />
         <module name="restTemplate" />
-        <module name="demo" />
         <module name="mockito-controller" />
+        <module name="basic-and-restTemplate" />
+        <module name="mock-object" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demo" target="11" />
-      <module name="mockito" target="11" />
+      <module name="api-request" target="11" />
+      <module name="basic-and-restTemplate" target="11" />
+      <module name="example2and4" target="11" />
+      <module name="mock-object" target="11" />
       <module name="mockito-controller" target="11" />
       <module name="mockito-restTemplate" target="11" />
       <module name="restTemplate" target="11" />
@@ -24,8 +27,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
-      <module name="mockito" options="-parameters" />
+      <module name="api-request" options="-parameters" />
+      <module name="basic-and-restTemplate" options="-parameters" />
+      <module name="example2and4" options="-parameters" />
+      <module name="mock-object" options="-parameters" />
       <module name="mockito-controller" options="-parameters" />
       <module name="mockito-restTemplate" options="-parameters" />
       <module name="restTemplate" options="-parameters" />

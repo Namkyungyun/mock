@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/mockito-restTemplate/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/mockito-controller/pom.xml" />
+        <option value="$PROJECT_DIR$/basic-mockito/pom.xml" />
+        <option value="$PROJECT_DIR$/example1/pom.xml" />
       </list>
     </option>
   </component>

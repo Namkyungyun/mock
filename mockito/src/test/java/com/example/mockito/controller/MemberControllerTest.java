@@ -2,7 +2,11 @@ package com.example.mockito.controller;
 
 import com.example.mockito.jpa.MemberDto;
 import com.example.mockito.service.MemberService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.h2.value.ValueJavaObject;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -84,10 +88,12 @@ public class MemberControllerTest {
 
         // then
         final MvcResult mvcResult = resultActions.andExpect(status().isOk()).andReturn();
-        final String result = String.valueOf(mvcResult.getResponse().getContentAsString());
-        assertThat(result).isNotNull();
-        System.out.println(result);
+        final String result = mvcResult.getResponse().getContentAsString();
+        final String result2 =  mvcResult.getResponse().getContentType();
 
+        assertThat(result).isNotNull();
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals("application/json", result2);
     }
 
 
