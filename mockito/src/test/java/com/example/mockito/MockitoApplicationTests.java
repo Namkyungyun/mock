@@ -85,8 +85,9 @@ class MockitoApplicationTests {
     @DisplayName("save")
     void testSave() {
         //given
-        MemberDto member1
-                = new MemberDto(1l, "test@email.com", "mock유저1");
+        MemberDto member1 = new MemberDto();
+        member1.setName("test@email.com");
+        member1.setName("mock유저1");
 
         ModelMapper mapper = new ModelMapper();
         MemberEntity member = mapper.map(member1, MemberEntity.class);

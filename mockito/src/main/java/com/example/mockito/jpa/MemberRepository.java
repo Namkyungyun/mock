@@ -6,11 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 
     MemberEntity findByName(String name);
-
     MemberEntity findByEmail(String email);
-
-    @Transactional
-    void deleteByEmail(String email);
 
     @Transactional
     void deleteById(Long id);
