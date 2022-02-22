@@ -38,7 +38,6 @@ public class MemberController {
         if(memberDto) {
             exist = "회원 존재";
         }
-        System.out.println(memberDto);
         return memberDto
                 ? new ResponseEntity(exist, HttpStatus.NOT_ACCEPTABLE)
                 : ResponseEntity.ok(service.saveMember(dto));

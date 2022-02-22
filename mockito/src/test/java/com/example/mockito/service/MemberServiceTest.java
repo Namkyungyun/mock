@@ -15,8 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 
-
-
 @ExtendWith(MockitoExtension.class)
 public class MemberServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(MemberServiceTest.class);

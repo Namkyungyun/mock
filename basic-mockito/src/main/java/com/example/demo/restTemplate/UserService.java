@@ -23,7 +23,6 @@ public class UserService {
     }
 
 
-
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
