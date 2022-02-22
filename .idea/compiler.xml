@@ -6,16 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mockito-restTemplate" />
         <module name="mockito" />
+        <module name="restTemplate" />
+        <module name="demo" />
+        <module name="mockito-controller" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="11" />
       <module name="mockito" target="11" />
+      <module name="mockito-controller" target="11" />
+      <module name="mockito-restTemplate" target="11" />
+      <module name="restTemplate" target="11" />
+      <module name="usesr-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
       <module name="mockito" options="-parameters" />
+      <module name="mockito-controller" options="-parameters" />
+      <module name="mockito-restTemplate" options="-parameters" />
+      <module name="restTemplate" options="-parameters" />
+      <module name="usesr-service" options="-parameters" />
     </option>
   </component>
 </project>

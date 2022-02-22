@@ -26,20 +26,32 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(service.getMembers());
     }
 
-    @GetMapping("/member/{name}")
-    public ResponseEntity<MemberDto> getMember(@PathVariable("name") String name) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.getMember(name));
+    @GetMapping("/member/{email}")
+    public ResponseEntity<MemberDto> getMember(@PathVariable("email") String email) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.getMemberByEmail(email));
     }
 
     @PostMapping("/member")
-    public ResponseEntity<MemberDto> saveMember(@RequestBody MemberDto dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveMember(dto));
+    public ResponseEntity saveMember(@RequestBody MemberDto dto) {
+        Boolean memberDto = service.isEmailExist(dto.getEmail());
+        String exist = "";
+        if(memberDto) {
+            exist = "회원 존재";
+        }
+        System.out.println(memberDto);
+        return memberDto
+                ? new ResponseEntity(exist, HttpStatus.NOT_ACCEPTABLE)
+                : ResponseEntity.ok(service.saveMember(dto));
     }
 
     @PostMapping("/member/{email}")
     public ResponseEntity<String> deleteMember(@PathVariable("email") String email) {
+        Boolean member = service.isEmailExist(email);
 
-        return ResponseEntity.status(HttpStatus.OK).body(service.deleteMember(email));
+        System.out.println(member);
+        return member
+                ? ResponseEntity.ok(service.deleteMember(email))
+                : ResponseEntity.badRequest().body("삭제할 수 없습니다.");
     }
 
 }
